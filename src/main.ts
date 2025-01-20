@@ -2,8 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { ValidationPipe } from '@nestjs/common';
 
-const port = 3000;
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(
@@ -24,6 +22,6 @@ async function bootstrap() {
     allowedHeaders: '*', // Allow all headers
   });
 
-  await app.listen(port);
+  await app.listen(process.env.DB_URL || 3000);
 }
 bootstrap();
