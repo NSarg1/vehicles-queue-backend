@@ -16,9 +16,14 @@ import { ConfigModule } from '@nestjs/config';
     EventEmitterModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.DB_URL,
-      autoLoadEntities: true,
+
+      host: process.env.DATABASE_HOST,
+      database: process.env.DATABASE_NAME,
+      username: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+
       ssl: { rejectUnauthorized: false },
+      autoLoadEntities: true,
       synchronize: true,
     }),
   ],
