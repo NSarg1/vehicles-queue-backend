@@ -1,4 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity() // sql table === 'coffee'
 export class Vehicle {
@@ -8,6 +13,6 @@ export class Vehicle {
   charger: string;
   @Column()
   plate: string;
-  @Column({ default: Date() })
-  registerTime: string;
+  @CreateDateColumn()
+  registerTime: Date;
 }

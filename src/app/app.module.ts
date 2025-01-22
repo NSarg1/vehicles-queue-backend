@@ -24,7 +24,7 @@ import { ConfigModule } from '@nestjs/config';
 
       ssl: { rejectUnauthorized: false },
       autoLoadEntities: true,
-      // synchronize: true,
+      synchronize: true,
     }),
   ],
   controllers: [AppController],
